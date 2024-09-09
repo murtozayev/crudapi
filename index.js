@@ -24,7 +24,7 @@ app.post("/add", async (req, res) => {
         res.json("Add something")
     }
 
-    const newThing = new CRUD({ text })
+    const newThing = new CRUD({ text, updated: false })
 
     try {
         const savedThing = await newThing.save()
