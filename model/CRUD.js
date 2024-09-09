@@ -5,6 +5,6 @@ const crudThing = new mongoose.Schema({
         type: String,
         required: true
     }
-})
+}, { timestamps: true })
 
 export const CRUD = mongoose.model('CRUD', crudThing);
