@@ -24,7 +24,7 @@ app.post("/add", async (req, res) => {
         res.json("Add something")
     }
 
-    const newThing = new CRUD({ text, updated: false })
+    const newThing = new CRUD({ text })
 
     try {
         const savedThing = await newThing.save()
@@ -49,7 +49,7 @@ app.delete("/:id", async (req, res) => {
 
 app.put("/:id", async (req, res) => {
     const { id } = req.params;
-    const { text } = req.body
+    const text = req.body
     try {
         const changed = await CRUD.findByIdAndUpdate(id, text, { new: true, runValidators: true });
 
